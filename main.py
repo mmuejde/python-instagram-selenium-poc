@@ -24,6 +24,9 @@ logging.basicConfig(
 URL = "http://www.instagram.com"
 TIMEOUT = 5
 
+USERNAME = "XXXXX"
+PASSWORD = "XXXXX"
+
 try:
     request = requests.get(URL, timeout=TIMEOUT)
     logging.info("Connected to the Internet")
@@ -46,14 +49,14 @@ waiting_for(2)
 
 try:
     username_field = browser.find_element(By.NAME, "username")
-    username_field.send_keys("codingbeaver")
+    username_field.send_keys(USERNAME)
 except NoSuchElementException:
     logging.error("Username input could not be located!", exc_info=True)
     browser.quit()
 
 try:
     password_field = browser.find_element(By.NAME, "password")
-    password_field.send_keys("benq1453")
+    password_field.send_keys(PASSWORD)
 except NoSuchElementException:
     logging.error("Password input could not be located!", exc_info=True)
     browser.quit()
